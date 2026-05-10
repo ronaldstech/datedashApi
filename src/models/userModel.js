@@ -19,7 +19,7 @@ class UserModel {
 
     static async create(data){
         const sql = `
-            INSERT INTO users(name, email, phone, password)
+            INSERT INTO users(username, email, phone, password)
             VALUES(?, ?, ?, ?)
         `;
 
@@ -35,7 +35,7 @@ class UserModel {
 
     static async update(id, data){
         const sql = `
-            UPDATE users SET name=?, email=?, phone=?, password=? WHERE id=?
+            UPDATE users SET username=?, email=?, phone=?, password=? WHERE id=?
         `;
 
         const [result] = await db.query(sql, [
