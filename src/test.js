@@ -1,20 +1,17 @@
-async function signIn() {
-    const response = await fetch('http://localhost:5000/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            first_name: 'Befus',
-            last_name: 'Makwinja',
-            email: 'befmakwinja@gmail.com',
-            password: '123456'
-        })
-    });
+async function getProfile() {
+    const response = await fetch(
+        'http://localhost:5000/users/profile',
+        {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzgwNjAyMzA4LCJleHAiOjE3ODEyMDcxMDh9.mdorp2QRU5H160e9KT1lRyBdJflIe0eHJiTerbbPc0g'
+            }
+        }
+    );
 
     const data = await response.json();
-    console.log(data);
 
+    console.log(data);
 }
 
-signIn();
+getProfile();
